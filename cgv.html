@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Toutes les réponses à vos questions concernant la livraison, les retours et les coulisses de Brin de Stef.">
+    <title>Mes engagements & FAQ | Brin de Stef</title>
+    <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .legal-content h2 { font-size: 1.6rem; margin: 30px 0 15px; color: var(--black); border-bottom: 1px solid var(--gray-light); padding-bottom: 8px; }
+        .legal-content h3 { font-size: 1.1rem; margin: 20px 0 10px; color: var(--gold-dark); }
+        .legal-content p { color: var(--gray); margin-bottom: 15px; line-height: 1.8; text-align: justify; }
+        .faq-item { background: white; padding: 20px; border-radius: 4px; margin-bottom: 15px; border-left: 3px solid var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div class="offer-banner" id="offerBanner">
+         💡 Un petit mot doux : <span>-10%</span> sur votre premier coup de cœur avec le code <span>BIENVENUE10</span>
+        <button class="close-banner" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Brin de <em>Stef</em></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+            
+                <li><a href="a-propos.html">Mon Histoire</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    <span class="status-dot"></span>
+</a>
+                <button class="nav-search-btn" onclick="toggleSearch()" title="Rechercher">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+                <button class="nav-cart" onclick="toggleCart()">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()"></div>
+    <div class="search-bar" id="searchBar">
+        <div class="search-bar-inner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Rechercher un bijou..." oninput="handleSearch(this.value)">
+            <button class="search-close-btn" onclick="toggleSearch()">Fermer</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="about-header">
+        <h1>Mes Engagements & FAQ</h1>
+        <p>Les réponses à vos petites questions du quotidien</p>
+    </div>
+
+    <section class="section">
+        <div class="container legal-content" style="max-width: 800px;">
+            
+            <div id="faq">
+                <h2>Vos Questions Fréquentes (FAQ)</h2>
+                <div class="faq-item">
+                    <h3>Les bijoux résistent-ils à l'eau ?</h3>
+                    <p>Mes créations fines et délicates adorent qu'on prenne soin d'elles. Pour prolonger au maximum l'éclat de l'assemblage, des vernis émaillés et des perles, je vous recommande d'éviter au maximum les douches, les bains de mer, les parfums et les crèmes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Puis-je demander un bijou ajusté ou sur-mesure ?</h3>
+                    <p>Avec grand plaisir ! Comme j'assemble chaque pièce individuellement à la main dans mon atelier en Provence, je peux très facilement adapter la longueur d'un fil ou d'une chaîne pour qu'elle s'ajuste parfaitement à vous. Glissez-moi simplement un mot via la page Contact.</p>
+                </div>
+            </div>
+
+            <h2>Conditions Générales de Vente</h2>
+            <p>Les présentes conditions régissent les ventes de bijoux issus de mon travail d'assemblage sur la boutique en ligne Brin de Stef. Chaque commande passée implique l'acceptation de ces petites règles d'usage.</p>
+            
+            <h3>1. Mes Produits & Prix</h3>
+            <p>Les prix sont indiqués en Euros, TTC (TVA non applicable, art. 293 B du CGI). Les bijoux étant assemblés de manière totalement artisanale dans mon atelier en Provence, chaque pièce peut présenter d'infimes variations uniques par rapport aux photos, ce qui fait tout le charme d'un montage manuel.</p>
+
+            <h3>2. Règlements Sécurisés</h3>
+            <p>Vous pouvez régler vos coups de cœur en toute sécurité par Carte Bancaire (via Stripe) ou avec votre compte PayPal. Je ne vois et ne stocke jamais vos coordonnées bancaires.</p>
+
+            <div id="livraison">
+                <h3>3. Expéditions & Délais</h3>
+                <p>J'assemble, prépare et emballe vos commandes avec beaucoup d'amour depuis mon atelier en Provence. Vos colis sont expédiés sous 48h ouvrées en Lettre Suivie ou Colissimo. Pour vous remercier, la livraison est offerte en France dès 50€ d'achat.</p>
+            </div>
+
+            <h3>4. Retours & Rétractation</h3>
+            <p>Si un bijou ne vous convient pas, vous disposez de 14 jours pour me le renvoyer intact dans son emballage d'origine. S'il s'agit de boucles d'oreilles, par simple mesure d'hygiène évidentes, elles ne pourront être ni reprises ni échangées.</p>
+
+            <div id="rgpd">
+                <h3>5. Respect de votre vie privée</h3>
+                <p>Les informations que vous me donnez (nom, adresse pour le colis) me servent uniquement à vous envoyer vos bijoux. Elles restent bien au chaud chez moi et ne seront jamais revendues ou partagées.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header"><h3>🛒 Mon Panier</h3><button class="cart-close" onclick="toggleCart()">✕</button></div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total"><span>Total</span><span id="cartTotal">0,00 €</span></div>
+            <button class="checkout-btn" onclick="goToCheckout()">Passer la commande</button>
+            <div class="payment-placeholders">
+                <div class="payment-placeholder">PayPal – Dispo</div>
+                <div class="payment-placeholder">Stripe – Dispo</div>
+            </div>
+        </div>
+    </div>
+    <div class="notification" id="notification"><span class="notif-icon">✓</span><span id="notifText"></span></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="footer-logo-title">Brin de <em>Stef</em></div><p>Bijoux fins d'exception assemblés à la main dans mon atelier en Provence.</p></div>
+                <div class="footer-col">
+                    <h4>La Collection</h4>
+                    <ul>
+                        <li><a href="boutique.html?cat=colliers">Colliers</a></li>
+                        <li><a href="boutique.html?cat=bagues">Bagues</a></li>
+                        <li><a href="boutique.html?cat=bracelets">Bracelets</a></li>
+                        <li><a href="boutique.html?cat=boucles">Boucles d'oreilles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>En savoir plus</h4>
+                    <ul>
+                        <li><a href="a-propos.html">Mon histoire</a></li>
+                        <li><a href="contact.html">Me contacter</a></li>
+                        <li><a href="cgv.html#livraison">Livraison & Retours</a></li>
+                        <li><a href="cgv.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="cgv.html#rgpd">Vos données privées</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 Brin de Stef. Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>

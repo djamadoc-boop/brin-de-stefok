@@ -1,0 +1,9 @@
+{
+  "name": "brin-de-stef",
+  "version": "1.0.0",
+  "description": "Boutique Brin de Stef",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3",
+    "stripe": "^14.14.0"
+  }
+}

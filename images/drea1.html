@@ -1,0 +1,642 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dréa Digital — Agence digitale en PACA. Sites ultra-rapides, direction artistique IA et automatisation métier sur-mesure.">
+    <meta name="geo.region" content="FR-PAC">
+    <meta name="geo.placename" content="Provence-Alpes-Côte d'Azur">
+    <title>Dréa Digital — Agence Digitale Nouvelle Génération</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================
+         HEADER FIXE — Navigation principale
+    ============================================ -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <!-- Logo -->
+            <a href="#" class="logo" aria-label="Accueil Dréa Digital">
+                <span class="logo__icon">⚡</span>
+                <span class="logo__text">Dréa<span class="logo__accent">.</span>digital</span>
+            </a>
+
+            <!-- Navigation Desktop -->
+            <nav class="nav" id="nav" aria-label="Navigation principale">
+                <ul class="nav__list">
+                    <li><a href="#expertise" class="nav__link">Expertise</a></li>
+                    <li><a href="#packs" class="nav__link">Offres</a></li>
+                    <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- CTA Header + Toggle Mobile -->
+            <div class="header__actions">
+                <a href="#contact" class="btn btn--primary btn--sm">Démarrer un projet</a>
+                <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span class="nav__toggle-line"></span>
+                    <span class="nav__toggle-line"></span>
+                    <span class="nav__toggle-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============================================
+             SECTION HERO — Accroche principale
+        ============================================ -->
+        <section class="hero" id="hero">
+            <!-- Effet de fond animé -->
+            <div class="hero__bg" aria-hidden="true">
+                <div class="hero__glow hero__glow--1"></div>
+                <div class="hero__glow hero__glow--2"></div>
+                <div class="hero__glow hero__glow--3"></div>
+            </div>
+
+            <div class="container hero__content">
+                <div class="hero__badge">
+                    <span class="hero__badge-dot"></span>
+                    Agence Digitale · PACA
+                </div>
+
+                <h1 class="hero__title">
+                    On ne construit pas des sites.<br>
+                    On bâtit des <span class="text-gradient">écosystèmes digitaux</span>
+                    <span class="hero__title-icon" aria-hidden="true">⚡</span>
+                </h1>
+
+                <p class="hero__subtitle">
+                    Performance brute, direction artistique IA et automatisation intelligente.
+                    Votre site ne se contente pas d'exister — il <strong>convertit</strong>,
+                    <strong>automatise</strong> et <strong>domine</strong>.
+                </p>
+
+                <div class="hero__cta-group">
+                    <a href="#packs" class="btn btn--primary btn--lg">
+                        Découvrir les packs
+                        <span class="btn__arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a href="#portfolio" class="btn btn--outline btn--lg">
+                        Voir mes réalisations
+                    </a>
+                </div>
+
+                <!-- Indicateurs de performance -->
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">99<span class="hero__stat-unit">%</span></span>
+                        <span class="hero__stat-label">Score Lighthouse</span>
+                    </div>
+                    <div class="hero__stat-divider" aria-hidden="true"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">&lt;1<span class="hero__stat-unit">s</span></span>
+                        <span class="hero__stat-label">Temps de chargement</span>
+                    </div>
+                    <div class="hero__stat-divider" aria-hidden="true"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">0<span class="hero__stat-unit"></span></span>
+                        <span class="hero__stat-label">CMS lourd</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="hero__scroll" aria-hidden="true">
+                <div class="hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION EXPERTISE — 3 colonnes
+        ============================================ -->
+        <section class="expertise" id="expertise">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// Notre Expertise</span>
+                    <h2 class="section-title">Trois piliers. <span class="text-gradient">Un résultat.</span></h2>
+                    <p class="section-description">
+                        Chaque projet repose sur une trinité technique qui garantit
+                        performance, esthétique et efficacité opérationnelle.
+                    </p>
+                </div>
+
+                <div class="expertise__grid">
+                    <!-- Carte 1 : Code & Performance -->
+                    <article class="expertise__card">
+                        <div class="expertise__card-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M12 8L4 20L12 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M28 8L36 20L28 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M24 4L16 36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="expertise__card-title">Code & Performance</h3>
+                        <p class="expertise__card-text">
+                            HTML5, CSS3, JavaScript pur. Déploiement sur Netlify.
+                            Pas de CMS usine à gaz, pas de plugins superflus.
+                            Juste du code propre qui charge en moins d'une seconde
+                            et affiche un score Lighthouse de 99+.
+                        </p>
+                        <ul class="expertise__card-tags">
+                            <li>HTML5 / CSS3 / JS</li>
+                            <li>Netlify</li>
+                            <li>Score 99+</li>
+                        </ul>
+                    </article>
+
+                    <!-- Carte 2 : Direction Artistique IA -->
+                    <article class="expertise__card">
+                        <div class="expertise__card-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="2"/>
+                                <line x1="20" y1="2" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="20" y1="32" x2="20" y2="38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="2" y1="20" x2="8" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="32" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="expertise__card-title">Direction Artistique IA</h3>
+                        <p class="expertise__card-text">
+                            Identités visuelles uniques, images et clips vidéo générés
+                            en local via ComfyUI (Flux, LTX-Video). Chaque visuel est
+                            une pièce sur-mesure, jamais un template recyclé.
+                            Votre marque mérite une signature visuelle inoubliable.
+                        </p>
+                        <ul class="expertise__card-tags">
+                            <li>ComfyUI</li>
+                            <li>Flux / LTX-Video</li>
+                            <li>100% Sur-mesure</li>
+                        </ul>
+                    </article>
+
+                    <!-- Carte 3 : Systèmes & Automatisation -->
+                    <article class="expertise__card">
+                        <div class="expertise__card-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="4" y="4" width="12" height="12" rx="3" stroke="currentColor" stroke-width="2"/>
+                                <rect x="24" y="4" width="12" height="12" rx="3" stroke="currentColor" stroke-width="2"/>
+                                <rect x="4" y="24" width="12" height="12" rx="3" stroke="currentColor" stroke-width="2"/>
+                                <rect x="24" y="24" width="12" height="12" rx="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 10H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 16V24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M30 16V24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 30H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="expertise__card-title">Systèmes & Automatisation</h3>
+                        <p class="expertise__card-text">
+                            Workflows n8n qui connectent votre site à votre écosystème :
+                            emails automatiques, synchronisation bases de données,
+                            gestion clients, notifications instantanées.
+                            Votre business tourne pendant que vous dormez.
+                        </p>
+                        <ul class="expertise__card-tags">
+                            <li>n8n</li>
+                            <li>Supabase</li>
+                            <li>Webhooks</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION PACKS — Pricing Cards
+        ============================================ -->
+        <section class="pricing" id="packs">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// Nos Packs</span>
+                    <h2 class="section-title">Un investissement. <span class="text-gradient">Un retour mesurable.</span></h2>
+                    <p class="section-description">
+                        Trois niveaux d'ambition. Chaque pack est conçu pour délivrer
+                        un résultat concret, du lancement à l'automatisation totale.
+                    </p>
+                </div>
+
+                <div class="pricing__grid">
+
+                    <!-- PACK 1 : Lancement Éclair -->
+                    <article class="pricing__card">
+                        <div class="pricing__card-header">
+                            <span class="pricing__card-label">Pack 01</span>
+                            <h3 class="pricing__card-name">Lancement Éclair</h3>
+                            <p class="pricing__card-audience">Idéal TPE & Indépendants</p>
+                        </div>
+                        <div class="pricing__card-price">
+                            <span class="pricing__card-amount">Sur devis</span>
+                        </div>
+                        <ul class="pricing__card-features">
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Identité visuelle complète (Logo + Charte graphique)
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Design & impression de cartes de visite premium
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Site vitrine ultra-rapide (1 à 3 pages)
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Formulaire de contact intégré & sécurisé
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Déploiement Netlify + optimisation SEO de base
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn btn--outline btn--full">
+                            Choisir ce pack
+                            <span class="btn__arrow" aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <!-- PACK 2 : E-commerce & Conversion (RECOMMANDÉ) -->
+                    <article class="pricing__card pricing__card--featured">
+                        <div class="pricing__card-ribbon">★ Recommandé</div>
+                        <div class="pricing__card-header">
+                            <span class="pricing__card-label">Pack 02</span>
+                            <h3 class="pricing__card-name">E-commerce &<br>Conversion</h3>
+                            <p class="pricing__card-audience">Pour les marques qui veulent vendre</p>
+                        </div>
+                        <div class="pricing__card-price">
+                            <span class="pricing__card-amount">Sur devis</span>
+                        </div>
+                        <ul class="pricing__card-features">
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                <strong>Tout le Pack Lancement Éclair inclus</strong>
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Boutique en ligne fluide & responsive
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Backend Supabase — gestion produits & commandes
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Tunnel de paiement intégré (Stripe)
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Dashboard de suivi des ventes
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Optimisation conversion (CRO) avancée
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn btn--primary btn--full">
+                            Choisir ce pack
+                            <span class="btn__arrow" aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <!-- PACK 3 : Sur-Mesure & Automatisation -->
+                    <article class="pricing__card">
+                        <div class="pricing__card-header">
+                            <span class="pricing__card-label">Pack 03</span>
+                            <h3 class="pricing__card-name">Sur-Mesure &<br>Automatisation</h3>
+                            <p class="pricing__card-audience">L'écosystème digital complet</p>
+                        </div>
+                        <div class="pricing__card-price">
+                            <span class="pricing__card-amount">Sur devis</span>
+                        </div>
+                        <ul class="pricing__card-features">
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                <strong>Tout le Pack E-commerce inclus</strong>
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Refonte complète & architecture sur-mesure
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Studio vidéo IA — clips promotionnels sur-mesure
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Automatisation intégrale des processus via n8n
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                CRM connecté, emails automatiques, reporting
+                            </li>
+                            <li>
+                                <span class="pricing__check" aria-hidden="true">✓</span>
+                                Accompagnement & maintenance prioritaire
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn btn--outline btn--full">
+                            Choisir ce pack
+                            <span class="btn__arrow" aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+============================================
+             SECTION PORTFOLIO — Preuve sociale
+        ============================================ -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// Portfolio</span>
+                    <h2 class="section-title">La preuve par <span class="text-gradient">l'exemple.</span></h2>
+                    <p class="section-description">
+                        Chaque projet est une histoire de transformation digitale.
+                        Voici un aperçu de ce que nous construisons.
+                    </p>
+                </div>
+
+                <div class="portfolio__showcase">
+                    <!-- Maquette principale -->
+                    <div class="portfolio__mockup">
+                        <div class="portfolio__mockup-browser">
+                            <div class="portfolio__mockup-bar">
+                                <span class="portfolio__mockup-dot portfolio__mockup-dot--red"></span>
+                                <span class="portfolio__mockup-dot portfolio__mockup-dot--yellow"></span>
+                                <span class="portfolio__mockup-dot portfolio__mockup-dot--green"></span>
+                                <span class="portfolio__mockup-url">lumiere-bijoux.fr</span>
+                            </div>
+                            <div class="portfolio__mockup-content">
+                                <!-- Placeholder pour la capture d'écran du projet -->
+                                <div class="portfolio__mockup-placeholder">
+                                    <div class="portfolio__mockup-grid">
+                                        <div class="portfolio__mockup-hero-img">
+                                            <div class="portfolio__mockup-img-overlay">
+                                                <span>📸 Capture d'écran du projet</span>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio__mockup-sidebar">
+                                            <div class="portfolio__mockup-product">
+                                                <div class="portfolio__mockup-product-img"></div>
+                                                <div class="portfolio__mockup-product-line"></div>
+                                                <div class="portfolio__mockup-product-line portfolio__mockup-product-line--short"></div>
+                                            </div>
+                                            <div class="portfolio__mockup-product">
+                                                <div class="portfolio__mockup-product-img"></div>
+                                                <div class="portfolio__mockup-product-line"></div>
+                                                <div class="portfolio__mockup-product-line portfolio__mockup-product-line--short"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Détails du projet -->
+                    <div class="portfolio__details">
+                        <h3 class="portfolio__details-title">Lumière Bijoux</h3>
+                        <p class="portfolio__details-desc">
+                            Boutique e-commerce d'assemblage de bijoux artisanaux.
+                            Design épuré, tunnel de paiement optimisé,
+                            gestion des stocks via Supabase.
+                        </p>
+                        <div class="portfolio__tech-stack">
+                            <span class="portfolio__tech-tag">HTML5</span>
+                            <span class="portfolio__tech-tag">CSS3</span>
+                            <span class="portfolio__tech-tag">Supabase</span>
+                            <span class="portfolio__tech-tag">Stripe</span>
+                            <span class="portfolio__tech-tag">Netlify</span>
+                        </div>
+                        <div class="portfolio__metrics">
+                            <div class="portfolio__metric">
+                                <span class="portfolio__metric-value">+340%</span>
+                                <span class="portfolio__metric-label">de conversions</span>
+                            </div>
+                            <div class="portfolio__metric">
+                                <span class="portfolio__metric-value">0.8s</span>
+                                <span class="portfolio__metric-label">chargement</span>
+                            </div>
+                            <div class="portfolio__metric">
+                                <span class="portfolio__metric-value">98</span>
+                                <span class="portfolio__metric-label">Lighthouse</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION CONTACT — Formulaire
+        ============================================ -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact__inner">
+                    <div class="contact__info">
+                        <span class="section-tag">// Contact</span>
+                        <h2 class="section-title">Prêt à <span class="text-gradient">construire</span> ?</h2>
+                        <p class="contact__info-text">
+                            Décrivez votre projet en quelques mots. Je vous réponds
+                            sous 24h avec une proposition sur-mesure et un devis détaillé.
+                        </p>
+                        <div class="contact__info-details">
+                            <div class="contact__info-item">
+                                <span class="contact__info-icon" aria-hidden="true">📧</span>
+                                <div>
+                                    <span class="contact__info-label">Email</span>
+                                    <a href="mailto:hello@drea-digital.fr" class="contact__info-value">hello@drea-digital.fr</a>
+                                </div>
+                            </div>
+                            <div class="contact__info-item">
+                                <span class="contact__info-icon" aria-hidden="true">📍</span>
+                                <div>
+                                    <span class="contact__info-label">Zone d'intervention</span>
+                                    <span class="contact__info-value">PACA & Remote (France/UE)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact__form" id="contactForm" action="#" method="POST">
+                        <div class="form__group">
+                            <label for="name" class="form__label">Votre nom</label>
+                            <input type="text" id="name" name="name" class="form__input" placeholder="Jean Dupont" required autocomplete="name">
+                        </div>
+
+                        <div class="form__group">
+                            <label for="email" class="form__label">Votre email</label>
+                            <input type="email" id="email" name="email" class="form__input" placeholder="jean@entreprise.fr" required autocomplete="email">
+                        </div>
+
+                        <div class="form__group">
+                            <label for="pack" class="form__label">Pack souhaité</label>
+                            <select id="pack" name="pack" class="form__select" required>
+                                <option value="" disabled selected>Sélectionnez un pack</option>
+                                <option value="lancement">Pack Lancement Éclair</option>
+                                <option value="ecommerce">Pack E-commerce & Conversion</option>
+                                <option value="sur-mesure">Pack Sur-Mesure & Automatisation</option>
+                                <option value="autre">Autre / Je ne sais pas encore</option>
+                            </select>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="message" class="form__label">Décrivez votre projet</label>
+                            <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Parlez-moi de votre activité, vos objectifs, vos délais..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full btn--lg">
+                            Envoyer ma demande
+                            <span class="btn__arrow" aria-hidden="true">→</span>
+                        </button>
+
+                        <p class="form__note">
+                            🔒 Vos données sont protégées et ne seront jamais partagées.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER — Pied de page
+    ============================================ -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <a href="#" class="logo" aria-label="Accueil Dréa Digital">
+                        <span class="logo__icon">⚡</span>
+                        <span class="logo__text">Dréa<span class="logo__accent">.</span>digital</span>
+                    </a>
+                    <p class="footer__brand-text">
+                        Agence digitale nouvelle génération.<br>
+                        Performance, Design, Automatisation.
+                    </p>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__col">
+                        <h4 class="footer__col-title">Navigation</h4>
+                        <ul class="footer__list">
+                            <li><a href="#expertise">Expertise</a></li>
+                            <li><a href="#packs">Offres</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4 class="footer__col-title">Légal</h4>
+                        <ul class="footer__list">
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">Politique de confidentialité</a></li>
+                            <li><a href="#">CGV</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 Dréa Digital. Tous droits réservés. · Basée en PACA</p>
+                <p class="footer__bottom-tech">
+                    Construit avec <span class="mono">HTML</span> + <span class="mono">CSS</span> + <span class="mono">❤️</span> — Déployé sur <span class="mono">Netlify</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPT — Navigation mobile & interactions
+    ============================================ -->
+    <script>
+        // Toggle navigation mobile
+        const navToggle = document.getElementById('navToggle');
+        const nav = document.getElementById('nav');
+        const header = document.getElementById('header');
+
+        navToggle.addEventListener('click', () => {
+            const isOpened = nav.classList.toggle('nav--open');
+            navToggle.classList.toggle('nav__toggle--active');
+            navToggle.setAttribute('aria-expanded', isOpened);
+        });
+
+        // Fermer le menu au clic sur un lien
+        nav.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav--open');
+                navToggle.classList.remove('nav__toggle--active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Préparation pour envoi vers webhook n8n / Supabase
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            // TODO : Remplacer par l'URL de votre webhook n8n ou endpoint Supabase
+            const WEBHOOK_URL = 'https://votre-n8n-instance.com/webhook/contact-form';
+
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('✅ Message envoyé avec succès ! Je vous réponds sous 24h.');
+                    this.reset();
+                } else {
+                    alert('❌ Une erreur est survenue. Veuillez réessayer ou m\'envoyer un email directement.');
+                }
+            })
+            .catch(() => {
+                alert('❌ Impossible de contacter le serveur. Veuillez m\'envoyer un email directement à hello@drea-digital.fr');
+            });
+        });
+    </script>
+
+</body>
+</html>

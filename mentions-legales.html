@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales | Brin de Stef</title>
+    <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="offer-banner" id="offerBanner">
+        💡 Un petit mot doux : <span>-10%</span> sur votre premier coup de cœur avec le code <span>BIENVENUE10</span>
+        <button class="close-banner" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Brin de <em>Stef</em></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+                <li><a href="a-propos.html">Mon Histoire</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    <span class="status-dot"></span>
+</a>
+                <button class="nav-search-btn" onclick="toggleSearch()" title="Rechercher">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+                <button class="nav-cart" onclick="toggleCart()">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()"></div>
+    <div class="search-bar" id="searchBar">
+        <div class="search-bar-inner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Rechercher un bijou..." oninput="handleSearch(this.value)">
+            <button class="search-close-btn" onclick="toggleSearch()">Fermer</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="about-header">
+        <h1>Mentions Légales</h1>
+        <p>La transparence avant tout sur la boutique</p>
+    </div>
+
+    <section class="section">
+        <div class="container legal-content" style="max-width: 800px;">
+            
+            <h2>Mentions Légales</h2>
+            <p>Le présent document définit les règles d'éditeur et les conditions d'utilisation relatives à la navigation sur la boutique en ligne Brin de Stef. Chaque visite implique l'acceptation de ces petites règles d'usage.</p>
+            
+            <h3>1. Édition du site</h3>
+            <p>Le site internet <strong>brindestef.fr</strong> est édité par :<br>
+            <strong>Stéphanie [Ton Nom]</strong>, entrepreneur individuel.<br>
+            Adresse : [Ton adresse en Provence]<br>
+            Email : contact@brindestef.fr</p>
+
+            <h3>2. Propriété intellectuelle</h3>
+            <p>L'ensemble des éléments présents sur ce site sont la propriété exclusive de Brin de Stef. Toute reproduction ou distribution, totale ou partielle, est strictement interdite.</p>
+
+            <h3>3. Hébergement</h3>
+            <p>Le site est hébergé de manière sécurisée par :<br>
+            <strong>[Nom de ton hébergeur]</strong></p>
+
+            <h3>4. Gestion des données</h3>
+            <p>Conformément au RGPD, vous disposez d'un droit d'accès et de rectification de vos données. Les informations collectées via le panier sont uniquement utilisées pour le traitement de vos commandes.</p>
+
+        </div>
+    </section>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header"><h3>🛒 Mon Panier</h3><button class="cart-close" onclick="toggleCart()">✕</button></div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total"><span>Total</span><span id="cartTotal">0,00 €</span></div>
+            <button class="checkout-btn" onclick="goToCheckout()">Passer la commande</button>
+            <div class="payment-placeholders">
+                <div class="payment-placeholder">PayPal – Dispo</div>
+                <div class="payment-placeholder">Stripe – Dispo</div>
+            </div>
+        </div>
+    </div>
+    <div class="notification" id="notification"><span class="notif-icon">✓</span><span id="notifText"></span></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo-title">Brin de <em>Stef</em></div>
+                    <p>Bijoux fins délicats faits main. Chaque pièce est une poésie unique, imaginée et assemblée avec cœur dans mon atelier niché en Provence.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>La Collection</h4>
+                    <ul>
+                        <li><a href="boutique.html?cat=colliers">Colliers</a></li>
+                        <li><a href="boutique.html?cat=bagues">Bagues</a></li>
+                        <li><a href="boutique.html?cat=bracelets">Bracelets</a></li>
+                        <li><a href="boutique.html?cat=boucles">Boucles d'oreilles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>En savoir plus</h4>
+                    <ul>
+                        <li><a href="a-propos.html">Mon histoire</a></li>
+                        <li><a href="contact.html">Me contacter</a></li>
+                        <li><a href="cgv.html#livraison">Livraison & Retours</a></li>
+                        <li><a href="cgv.html#faq">Des questions ? (FAQ)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="cgv.html#rgpd">Vos données privées</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Brin de Stef. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

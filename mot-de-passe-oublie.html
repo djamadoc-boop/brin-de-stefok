@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mot de passe oublié - Brin de Stef</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
+    <style>
+        :root { --black: #1a1a1a; --gray: #707070; --gray-light: #f5f5f5; --gold: #c5a880; --gold-dark: #a68a62; }
+        
+        body { background-color: #ffffff; color: var(--black); margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .account-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; font-family: 'Lato', sans-serif; flex: 1; }
+        .auth-box { max-width: 450px; margin: 0 auto; background: white; padding: 35px; border-radius: 4px; border: 1px solid var(--gray-light); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        
+        .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+        .auth-box input { padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Lato', sans-serif; font-size: 0.9rem; background: #fff; }
+        
+        .btn-black { background: var(--black); color: white; border: none; padding: 14px; width: 100%; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; cursor:pointer; border-radius:4px; transition: 0.2s; }
+        .btn-black:hover { background: var(--gold-dark); }
+        
+        .back-link { display: block; text-align: center; margin-top: 20px; color: var(--gray); font-size: 0.85rem; text-decoration: underline; }
+
+        .header-banner { background: white; padding: 10px 20px; text-align: center; border-bottom: 1px solid var(--gray-light); }
+        .logo-container { display: block; margin-bottom: 2px; text-decoration: none; }
+        .logo-container img { max-height: 270px; width: auto; display: block; margin: 0 auto; }
+        .nav-links { display: flex; justify-content: center; gap: 30px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 2px; }
+        .nav-links a { color: var(--black); text-decoration: none; font-family: 'Lato', sans-serif; }
+    </style>
+</head>
+<body>
+
+    <header class="header-banner">
+        <div class="logo-container">
+            <img src="images/LOGOB.PNG" alt="Brin de Stef">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="boutique.html">Boutique</a>
+            <a href="compte.html">Mon Compte</a>
+        </nav>
+    </header>
+
+    <div class="account-container">
+        <div class="auth-box">
+            <h3 style="font-family:'Playfair Display', serif; margin-bottom:10px; font-size:1.5rem; text-align:center;">Réinitialisation</h3>
+            <p style="color:var(--gray); text-align:center; font-size:0.85rem; margin-bottom:25px;">Saisissez votre adresse e-mail. Un lien sécurisé vous sera envoyé pour créer un nouveau mot de passe.</p>
+            
+            <div class="form-group">
+                <input type="email" id="resetEmail" placeholder="Votre adresse e-mail professionnel ou perso" required>
+            </div>
+            
+            <button class="btn-black" onclick="handleResetRequest()">Envoyer le lien</button>
+            
+            <a href="compte.html" class="back-link">Retour à la page de connexion</a>
+        </div>
+    </div>
+
+    <div id="notification" style="position:fixed; bottom:20px; right:20px; background:var(--black); color:white; padding:15px 25px; font-size:0.9rem; border-radius:4px; display:none; z-index:9999;">
+        <span id="notifText"></span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
