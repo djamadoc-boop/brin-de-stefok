@@ -5,161 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Brin de Stef - Bijoux fins artisanaux imaginés et assemblés à la main dans mon atelier en Provence.">
     <title>Brin de Stef | Bijoux Fins Artisanaux & Créations Poétiques</title>
-    <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    
+    <link href="images/logoz13.webp" rel="icon" type="image/webp">
+    
+    <link rel="preload" href="images/hero-atelier-provence.webp" as="image" type="image/webp" fetchpriority="high">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"></noscript>
+    
+    <link rel="preload" as="style" href="style.min.css">
+    <link rel="stylesheet" href="style.min.css">
 </head>
 <body>
 
+    <a href="#main" class="skip-link" style="position:absolute; left:-9999px; z-index:999;">Aller au contenu principal</a>
+
     <div class="offer-banner" id="offerBanner">
          💡 Un petit mot doux : <span>-10%</span> sur votre premier coup de cœur avec le code <span>BIENVENUE10</span>
-        <button class="close-banner" onclick="this.parentElement.style.display='none'">✕</button>
+        <button class="close-banner" onclick="this.parentElement.style.display='none'" aria-label="Fermer la bannière promotionnelle">✕</button>
     </div>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Brin de <em>Stef</em></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="boutique.html">Boutique</a></li>
-                <li><a href="a-propos.html">Mon Histoire</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-        <circle cx="12" cy="7" r="4"></circle>
-    </svg>
-    <span class="status-dot"></span>
-</a>
-                <button class="nav-search-btn" onclick="toggleSearch()" title="Rechercher">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-                <button class="nav-cart" onclick="toggleCart()">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Des bijoux fins assemblés dans <em>mon atelier en Provence</em></h1>
-            <p>De la poésie, de la patience et des matières délicates choisies avec soin. Chaque pièce est une création originale, minutieusement assemblée par mes soins dans le calme de mon atelier en Provence.</p>
-            <a href="boutique.html" class="hero-btn">Découvrir mes créations</a>
-        </div>
-        <div class="hero-scroll">↓ Défiler doucement</div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Vos Pièces Préférées</h2>
-                <div class="divider"></div>
-                <p>Les bijoux qui font battre votre cœur au quotidien</p>
-            </div>
-            <div class="bestsellers-grid" id="bestsellersGrid"></div>
-        </div>
-    </section>
-
-    <section class="trust-section">
-        <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                    </div>
-                    <h4>Envoi Soigné</h4>
-                    <p>Préparé depuis la Provence et expédié sous 48h</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
-                    </div>
-                    <h4>Achat Sécurisé</h4>
-                    <p>Vos transactions protégées via Stripe & PayPal</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                    </div>
-                    <h4>Matières Choisies</h4>
-                    <p>Sélection stricte d'apprêts nobles, perles fines et éléments émaillés</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    </div>
-                    <h4>Atelier en Provence</h4>
-                    <p>Une création solitaire, minutieuse et passionnée</p>
+    <header class="site-header">
+        <nav class="navbar" id="navbar" aria-label="Navigation principale">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo" aria-label="Accueil Brin de Stef">Brin de <em>Stef</em></a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active" aria-current="page">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">Mon Histoire</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte" aria-label="Accéder à mon compte">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="status-dot"></span>
+                    </a>
+                    
+                    <button class="nav-search-btn" onclick="toggleSearch()" title="Rechercher" aria-label="Ouvrir la recherche">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                    
+                    <button class="nav-cart" onclick="toggleCart()" aria-label="Voir mon panier">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+                    </button>
+                    
+                    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <section class="special-offer">
-        <div class="container">
-            <h2>Une petite attention de bienvenue</h2>
-            <p>Profitez de -10% sur votre toute première commande</p>
-            <div class="offer-code" id="promoCodeBtn" onclick="navigator.clipboard.writeText('BIENVENUE10'); showNotification('Code promo copié !');">BIENVENUE10</div>
-            <p style="margin-top:10px; font-size:0.85rem; opacity:0.7;">Cliquez pour copier le code secret</p>
-        </div>
-    </section>
-
-    <section class="section testimonials-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Vos Douces Paroles</h2>
-                <div class="divider"></div>
-                <p>Parce que vos retours sont ma plus belle récompense</p>
+    <main id="main">
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Des bijoux fins assemblés dans <em>mon atelier en Provence</em></h1>
+                <p>De la poésie, de la patience et des matières délicates choisies avec soin. Chaque pièce est une création originale, minutieusement assemblée par mes soins dans le calme de mon atelier en Provence.</p>
+                <a href="boutique.html" class="hero-btn">Découvrir mes créations</a>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Un choix exceptionnel pour mes tenues. Les boucles d'oreilles émaillées captent parfaitement la lumière. L'emballage poétique sent bon le sud, je recommande !"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">ML</div>
-                        <div class="testimonial-author-info">
-                            <h4>Marie L.</h4>
-                            <p>Marseille</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Vos Pièces Préférées</h2>
+                    <div class="divider"></div>
+                    <p>Les bijoux qui font battre votre cœur au quotidien</p>
+                </div>
+                <div class="bestsellers-grid" id="bestsellersGrid"></div>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                         </div>
+                        <h2>Envoi Soigné</h2>
+                        <p>Préparé depuis la Provence et expédié sous 48h</p>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Le travail d'assemblage et de finesse sur les petites perles de rocailles et cordons est impressionnant. On ressent l'amour et le temps passé dans son atelier en Provence."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SC</div>
-                        <div class="testimonial-author-info">
-                            <h4>Sophie C.</h4>
-                            <p>Aix-en-Provence</p>
+                    <div class="trust-item">
+                        <div class="trust-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
                         </div>
+                        <h2>Achat Sécurisé</h2>
+                        <p>Vos transactions protégées via Stripe & PayPal</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                        <h2>Matières Choisies</h2>
+                        <p>Sélection stricte d'apprêts nobles, perles fines et éléments émaillés</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <h2>Atelier en Provence</h2>
+                        <p>Une création solitaire, minutieuse et passionnée</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()"></div>
-    <div class="search-bar" id="searchBar">
+        <section class="special-offer">
+            <div class="container">
+                <h2>Une petite attention de bienvenue</h2>
+                <p>Profitez de -10% sur votre toute première commande</p>
+                <button class="offer-code" id="promoCodeBtn" onclick="navigator.clipboard.writeText('BIENVENUE10'); if(typeof showNotification === 'function') showNotification('Code promo copié !');" aria-label="Copier le code promo BIENVENUE10">BIENVENUE10</button>
+                <p style="margin-top:10px; font-size:0.85rem; opacity:0.7;">Cliquez pour copier le code secret</p>
+            </div>
+        </section>
+
+        <section class="section testimonials-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Vos Douces Paroles</h2>
+                    <div class="divider"></div>
+                    <p>Parce que vos retours sont ma plus belle récompense</p>
+                </div>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars" aria-label="Note de 5 sur 5">★★★★★</div>
+                        <p class="testimonial-text">"Un choix exceptionnel pour mes tenues. Les boucles d'oreilles émaillées captent parfaitement la lumière. L'emballage poétique sent bon le sud, je recommande !"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" aria-hidden="true">ML</div>
+                            <div class="testimonial-author-info">
+                                <h3>Marie L.</h3>
+                                <p>Marseille</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars" aria-label="Note de 5 sur 5">★★★★★</div>
+                        <p class="testimonial-text">"Le travail d'assemblage et de finesse sur les petites perles de rocailles et cordons est impressionnant. On ressent l'amour et le temps passé dans son atelier en Provence."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" aria-hidden="true">SC</div>
+                            <div class="testimonial-author-info">
+                                <h3>Sophie C.</h3>
+                                <p>Aix-en-Provence</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()" aria-hidden="true"></div>
+    <div class="search-bar" id="searchBar" role="search">
         <div class="search-bar-inner">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="searchInput" placeholder="Rechercher un bijou..." oninput="handleSearch(this.value)">
-            <button class="search-close-btn" onclick="toggleSearch()">Fermer</button>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <label for="searchInput" class="visually-hidden" style="display:none;">Rechercher un bijou</label>
+            <input type="text" id="searchInput" placeholder="Rechercher un bijou..." oninput="handleSearch(this.value)" aria-label="Rechercher un bijou">
+            <button class="search-close-btn" onclick="toggleSearch()" aria-label="Fermer la recherche">Fermer</button>
         </div>
-        <div class="search-results" id="searchResults"></div>
+        <div class="search-results" id="searchResults" aria-live="polite"></div>
     </div>
 
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header"><h3>🛒 Mon Panier</h3><button class="cart-close" onclick="toggleCart()">✕</button></div>
-        <div class="cart-items" id="cartItems"></div>
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()" aria-hidden="true"></div>
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Votre panier">
+        <header class="cart-header">
+            <h2>🛒 Mon Panier</h2>
+            <button class="cart-close" onclick="toggleCart()" aria-label="Fermer le panier">✕</button>
+        </header>
+        <div class="cart-items" id="cartItems" aria-live="polite"></div>
         <div class="cart-footer" id="cartFooter" style="display:none;">
             <div class="cart-total"><span>Total</span><span id="cartTotal">0,00 €</span></div>
             <button class="checkout-btn" onclick="goToCheckout()">Passer la commande</button>
@@ -168,20 +193,25 @@
                 <div class="payment-placeholder">Stripe – CB</div>
             </div>
         </div>
+    </aside>
+
+    <div class="notification" id="notification" role="status" aria-live="polite">
+        <span class="notif-icon" aria-hidden="true">✓</span>
+        <span id="notifText"></span>
     </div>
+    
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut de la page">↑</button>
 
-    <div class="notification" id="notification"><span class="notif-icon">✓</span><span id="notifText"></span></div>
-    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="footer-logo-title">Brin de <em>Stef</em></div>
+                    <div class="footer-logo-title" aria-hidden="true">Brin de <em>Stef</em></div>
                     <p>Bijoux fins délicats faits main. Chaque pièce est une poésie unique, imaginée et assemblée avec cœur dans mon atelier niché en Provence.</p>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>La Collection</h4>
+                    <h2 class="footer-heading">La Collection</h2>
                     <ul>
                         <li><a href="boutique.html?cat=colliers">Colliers</a></li>
                         <li><a href="boutique.html?cat=bagues">Bagues</a></li>
@@ -189,8 +219,9 @@
                         <li><a href="boutique.html?cat=boucles">Boucles d'oreilles</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>En savoir plus</h4>
+                    <h2 class="footer-heading">En savoir plus</h2>
                     <ul>
                         <li><a href="a-propos.html">Mon histoire</a></li>
                         <li><a href="contact.html">Me contacter</a></li>
@@ -198,8 +229,9 @@
                         <li><a href="cgv.html#faq">Des questions ? (FAQ)</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>Légal</h4>
+                    <h2 class="footer-heading">Légal</h2>
                     <ul>
                         <li><a href="mentions-legales.html">Mentions légales</a></li>
                         <li><a href="cgv.html">CGV</a></li>
@@ -207,13 +239,14 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>© 2026 Brin de Stef. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="app.min.js" defer></script>
 </body>
 </html>

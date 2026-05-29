@@ -1,0 +1,19 @@
+# Cache agressif pour les assets statiques
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML - cache court pour permettre les mises à jour
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Compression
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin

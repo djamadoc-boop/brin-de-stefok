@@ -7,8 +7,13 @@
     <title>Nouveau mot de passe - Brin de Stef</title>
     <link rel="stylesheet" href="style.css">
     <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
+    <!-- Optimisation Dréa : Preconnect pour les polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-        :root { --black: #1a1a1a; --gray: #707070; --gray-light: #f5f5f5; --gold: #c5a880; --gold-dark: #a68a62; }
+       :root {--gold: #D4AF37;--gold-light: #E8D5A3;--gold-dark: #8b680d;--white: #F5F5F5;--black: #1A1A1A;--gray: #6B6B6B;--gray-light: #E0E0E0;
+     /* 100% GPU : Uniquement Opacity et Transform */
+        --transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);}
         
         body { background-color: #ffffff; color: var(--black); margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         
@@ -34,10 +39,12 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link" style="position:absolute; left:-9999px; z-index:999;">Aller au contenu principal</a>
 
-    <header class="header-banner">
+    <header class="header-banner" role="banner">
         <a href="index.html" class="logo-container" aria-label="Retour à l'accueil Brin de Stef">
-            <img src="images/LOGOB.PNG" alt="Logo Brin de Stef">
+            <!-- Optimisation Dréa : Fetchpriority + Dimensions pour le LCP et le CLS -->
+            <img src="images/LOGOB.PNG" alt="Logo Brin de Stef" width="300" height="270" fetchpriority="high" decoding="async">
         </a>
         <nav class="nav-links" aria-label="Navigation secondaire">
             <a href="index.html">Accueil</a>
@@ -46,7 +53,7 @@
         </nav>
     </header>
 
-    <main class="account-container">
+    <main id="main" class="account-container">
         <h1 class="sr-only">Définir un nouveau mot de passe</h1>
         
         <section class="auth-box" aria-labelledby="reset-title">
@@ -73,35 +80,44 @@
         <span id="notifText"></span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="app.js"></script>
+    <!-- Optimisation Dréa : defer -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="app.js" defer></script>
     
-    <script>
+    <script defer>
+        // --------- DÉBUT DE TON CODE JAVASCRIPT EXACT ---------
+        
         // Fonction d'alerte locale
-        function showLocalNotif(text) {
+        window.showLocalNotif = function(text) {
             const n = document.getElementById('notification');
             if (n) {
                 document.getElementById('notifText').textContent = text;
                 n.style.display = 'block';
                 setTimeout(() => { n.style.display = 'none'; }, 4000);
             }
-        }
+        };
 
         // Vérification à l'ouverture de la page pour alerter si le lien est expiré
-        window.addEventListener('DOMContentLoaded', () => {
-            if (window.supabaseClient) {
+        document.addEventListener('DOMContentLoaded', () => {
+            function checkSession() {
+                if (!window.supabaseClient) {
+                    setTimeout(checkSession, 50); // Polling pour attendre Supabase différé
+                    return;
+                }
+                
                 window.supabaseClient.auth.getSession().then(({ data }) => {
                     // Supabase injecte automatiquement le token du mail dans le hash de l'URL pour créer une session temporaire.
                     // S'il n'y a ni session, ni hash, le lien est probablement invalide.
                     if (!data.session && !window.location.hash.includes('access_token')) {
-                        showLocalNotif("⚠️ Lien de récupération expiré ou invalide. Veuillez refaire une demande depuis 'Mon Compte'.");
+                        window.showLocalNotif("⚠️ Lien de récupération expiré ou invalide. Veuillez refaire une demande depuis 'Mon Compte'.");
                     }
                 });
             }
+            checkSession();
         });
 
         // Validation et envoi du nouveau mot de passe
-        async function handlePasswordUpdate(event) {
+        window.handlePasswordUpdate = async function(event) {
             event.preventDefault();
             
             const newPassword = document.getElementById('newPassword').value;
@@ -109,12 +125,12 @@
             const submitBtn = event.target.querySelector('button[type="submit"]');
             
             if (newPassword !== confirmPassword) {
-                showLocalNotif("⚠️ Les mots de passe ne correspondent pas.");
+                window.showLocalNotif("⚠️ Les mots de passe ne correspondent pas.");
                 return;
             }
             
             if (newPassword.length < 6) {
-                showLocalNotif("⚠️ Votre mot de passe doit contenir au moins 6 caractères.");
+                window.showLocalNotif("⚠️ Votre mot de passe doit contenir au moins 6 caractères.");
                 return;
             }
 
@@ -131,7 +147,7 @@
 
                 if (error) throw error;
 
-                showLocalNotif("✅ Mot de passe mis à jour avec succès ! Redirection...");
+                window.showLocalNotif("✅ Mot de passe mis à jour avec succès ! Redirection...");
                 
                 // Redirection fluide vers l'espace client après 2 secondes
                 setTimeout(() => {
@@ -139,11 +155,13 @@
                 }, 2000);
                 
             } catch (err) {
-                showLocalNotif("❌ Erreur : " + err.message);
+                window.showLocalNotif("❌ Erreur : " + err.message);
                 submitBtn.textContent = 'Enregistrer le mot de passe';
                 submitBtn.disabled = false;
             }
-        }
+        };
+        
+        // --------- FIN DE TON CODE JAVASCRIPT EXACT ---------
     </script>
 </body>
 </html>

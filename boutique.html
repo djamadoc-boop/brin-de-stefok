@@ -3,63 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez nos bijoux de créateur fins et légers. Notre boutique propose des boucles d'oreilles, colliers et bagues ajustables faits main.">
-    <title>Boutique de Bijoux de Créateurs Fins | Brin de Stef</title>
-    <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Brin de Stef - Bijoux fins artisanaux imaginés et assemblés à la main dans mon atelier en Provence.">
+    <title>Brin de Stef | Boutique & Créations Artisanales</title>
+    
+    <link href="images/logoz13.webp" rel="icon" type="image/webp">
+    
+    <!-- DÉCOUVERTE LCP INSTANTANÉE : On force le navigateur à télécharger les images de tête avant même que le JS ne s'exécute -->
+    <link rel="preload" as="image" href="images/brin-de-stef-boucle-oreille-goutte-rouge1-courtes-bijoux-artisanaux.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="images/brin-de-stef-boucle-oreille-goutte-jaune-longues-bijoux-artisanaux.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="images/brin-de-stef-boucle-oreille-cr%C3%A9oles-dor%C3%A9-coeur-bijoux-artisanaux.webp" fetchpriority="high">
+    
+    <!-- POLICES EN CHARGEMENT ASYNCHRONE : Suppression du Render-Blocking (820ms) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"></noscript>
+    
+    <!-- CSS NON-BLOQUANT -->
+    <link rel="preload" as="style" href="style.min.css">
+    <link rel="stylesheet" href="style.min.css">
 </head>
 <body>
 
-    <div class="offer-banner" id="offerBanner">
+    <a href="#main" class="skip-link" style="position:absolute; left:-9999px; z-index:999;">Aller au contenu principal</a>
+
+    <div class="offer-banner" id="offerBanner" role="banner">
          💡 Un petit mot doux : <span>-10%</span> sur votre premier coup de cœur avec le code <span>BIENVENUE10</span>
-        <button class="close-banner" onclick="this.parentElement.style.display='none'">✕</button>
+        <button class="close-banner" onclick="this.parentElement.style.display='none'" aria-label="Fermer la bannière promotionnelle">✕</button>
     </div>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Brin de <em>Stef</em></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="boutique.html" class="active">Boutique</a></li>
-
-                <li><a href="a-propos.html">Mon Histoire</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-        <circle cx="12" cy="7" r="4"></circle>
-    </svg>
-    <span class="status-dot"></span>
-</a>
-                <button class="nav-search-btn" onclick="toggleSearch()" title="Rechercher">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-                <button class="nav-cart" onclick="toggleCart()">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
-                    <span></span><span></span><span></span>
-                </button>
+    <header class="site-header">
+        <nav class="navbar" id="navbar" aria-label="Navigation principale">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo" aria-label="Accueil Brin de Stef">Brin de <em>Stef</em></a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html" class="active" aria-current="page">Boutique</a></li>
+                    <li><a href="a-propos.html">Mon Histoire</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte" aria-label="Accéder à mon compte">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="status-dot"></span>
+                    </a>
+                    
+                    <button class="nav-search-btn" onclick="toggleSearch()" title="Rechercher" aria-label="Ouvrir la recherche">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                    
+                    <button class="nav-cart" onclick="toggleCart()" aria-label="Voir mon panier">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+                    </button>
+                    
+                    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()"></div>
-    <div class="search-bar" id="searchBar">
+    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()" aria-hidden="true"></div>
+    <div class="search-bar" id="searchBar" role="search" style="transform: translateY(-100%); visibility: hidden; opacity: 0;">
         <div class="search-bar-inner">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <label for="searchInput" class="visually-hidden" style="display:none;">Rechercher un bijou</label>
             <input type="text" id="searchInput" placeholder="Rechercher un bijou..." oninput="handleSearch(this.value)">
-            <button class="search-close-btn" onclick="toggleSearch()">Fermer</button>
+            <button class="search-close-btn" onclick="toggleSearch()" aria-label="Fermer la recherche">Fermer</button>
         </div>
-        <div class="search-results" id="searchResults"></div>
+        <div class="search-results" id="searchResults" aria-live="polite"></div>
     </div>
 
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header"><h3>🛒 Mon Panier</h3><button class="cart-close" onclick="toggleCart()">✕</button></div>
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()" aria-hidden="true"></div>
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Panier">
+        <div class="cart-header">
+            <h2>🛒 Mon Panier</h2>
+            <button class="cart-close" onclick="toggleCart()" aria-label="Fermer le panier">✕</button>
+        </div>
         <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer" id="cartFooter" style="display:none;">
             <div class="cart-total"><span>Total</span><span id="cartTotal">0,00 €</span></div>
@@ -69,50 +97,58 @@
                 <div class="payment-placeholder">Stripe – CB</div>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <div id="shopView">
-        <div class="shop-header">
-            <h1>Notre Collection</h1>
-            <p>Des bijoux raffinés pour illuminer votre quotidien et vos soirées</p>
-        </div>
-        <div class="shop-filters" id="shopFilters">
-            <button class="filter-btn active" data-filter="all" onclick="filterProductsUI('all', this)">Tout</button>
-            <button class="filter-btn" data-filter="colliers" onclick="filterProductsUI('colliers', this)">Colliers</button>
-            <button class="filter-btn" data-filter="bagues" onclick="filterProductsUI('bagues', this)">Bagues</button>
-            <button class="filter-btn" data-filter="bracelets" onclick="filterProductsUI('bracelets', this)">Bracelets</button>
-            <button class="filter-btn" data-filter="boucles" onclick="filterProductsUI('boucles', this)">Boucles d'oreilles</button>
-        </div>
-        <div class="container" style="padding-top: 20px; padding-bottom: 60px;">
-            <p class="shop-results" id="shopResults">0 création</p>
-            <div class="shop-grid" id="shopGrid"></div>
-        </div>
-    </div>
-
-    <div id="productView" style="display:none; padding-bottom: 80px;">
-        <div class="container">
-            <button onclick="hideProductDetail()" style="margin-top:30px; background:none; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; display:flex; align-items:center; gap:8px; color:var(--gray); padding-bottom:10px; cursor:pointer; transition:0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gray)'">← Retour à la boutique</button>
+    <main id="main">
+        <div id="shopView">
+            <header class="shop-header section-header">
+                <h1>Notre Collection</h1>
+                <p>Des bijoux raffinés pour illuminer votre quotidien et vos soirées</p>
+            </header>
             
-            <div class="product-layout" id="productLayout">
-                </div>
+            <div class="shop-filters" id="shopFilters" role="group" aria-label="Filtrer par catégorie">
+                <button class="filter-btn active" data-filter="all" onclick="filterProductsUI('all', this)" aria-pressed="true">Tout</button>
+                <button class="filter-btn" data-filter="colliers" onclick="filterProductsUI('colliers', this)" aria-pressed="false">Colliers</button>
+                <button class="filter-btn" data-filter="bagues" onclick="filterProductsUI('bagues', this)" aria-pressed="false">Bagues</button>
+                <button class="filter-btn" data-filter="bracelets" onclick="filterProductsUI('bracelets', this)" aria-pressed="false">Bracelets</button>
+                <button class="filter-btn" data-filter="boucles" onclick="filterProductsUI('boucles', this)" aria-pressed="false">Boucles d'oreilles</button>
+            </div>
+            
+            <section class="container" style="padding-top: 20px; padding-bottom: 60px;">
+                <p class="shop-results" id="shopResults" aria-live="polite">0 création</p>
+                <!-- CORRECTION CLS MASSIF : On bloque la hauteur pour que l'injection JS ne repousse pas le footer ! -->
+                <div class="products-grid" id="shopGrid" style="min-height: 1200px;"></div>
+            </section>
         </div>
-    </div>
 
-    <div class="zoom-modal" id="zoomModal" onclick="closeZoom()">
+        <div id="productView" style="display:none; padding-bottom: 80px;">
+            <div class="container">
+                <button onclick="hideProductDetail()" aria-label="Retour à la boutique" style="margin-top:30px; background:none; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; display:flex; align-items:center; gap:8px; color:var(--gray); padding-bottom:10px; cursor:pointer; transition:0.2s;" onmouseover="this.style.color='var(--gold-dark)'" onmouseout="this.style.color='var(--gray)'">← Retour à la boutique</button>
+                
+                <article class="product-layout" id="productLayout"></article>
+            </div>
+        </div>
+    </main>
+
+    <div class="zoom-modal" id="zoomModal" onclick="closeZoom()" aria-hidden="true" role="dialog" aria-label="Agrandissement de l'image">
         <img id="zoomImg" src="" alt="Zoom produit">
     </div>
 
-    <div class="notification" id="notification"><span class="notif-icon">✓</span><span id="notifText"></span></div>
+    <div class="notification" id="notification" role="status" aria-live="polite">
+        <span class="notif-icon" aria-hidden="true">✓</span>
+        <span id="notifText"></span>
+    </div>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="footer-logo-title">Brin de <em>Stef</em></div>
+                    <div class="footer-logo-title" aria-hidden="true">Brin de <em>Stef</em></div>
                     <p>Bijoux fins délicats faits main. Chaque pièce est une poésie unique, imaginée et assemblée avec cœur dans mon atelier niché en Provence.</p>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>La Collection</h4>
+                    <h2 class="footer-heading">La Collection</h2>
                     <ul>
                         <li><a href="boutique.html?cat=colliers">Colliers</a></li>
                         <li><a href="boutique.html?cat=bagues">Bagues</a></li>
@@ -120,8 +156,9 @@
                         <li><a href="boutique.html?cat=boucles">Boucles d'oreilles</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>En savoir plus</h4>
+                    <h2 class="footer-heading">En savoir plus</h2>
                     <ul>
                         <li><a href="a-propos.html">Mon histoire</a></li>
                         <li><a href="contact.html">Me contacter</a></li>
@@ -129,8 +166,9 @@
                         <li><a href="cgv.html#faq">Des questions ? (FAQ)</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>Légal</h4>
+                    <h2 class="footer-heading">Légal</h2>
                     <ul>
                         <li><a href="mentions-legales.html">Mentions légales</a></li>
                         <li><a href="cgv.html">CGV</a></li>
@@ -138,126 +176,14 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>© 2026 Brin de Stef. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="app.js"></script>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', async () => {
-            // On attend sagement que app.js ait chargé les bijoux
-            if (typeof loadProducts === 'function') {
-                await loadProducts();
-            }
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const prodId = urlParams.get('prod');
-            const cat = urlParams.get('cat');
-
-            if (prodId) {
-                showProductDetail(prodId);
-            } else if (cat) {
-                const targetBtn = document.querySelector(`[data-filter="${cat}"]`);
-                if (targetBtn) filterProductsUI(cat, targetBtn);
-                else initShopDisplay('all');
-            } else {
-                initShopDisplay('all');
-            }
-        });
-
-        function initShopDisplay(category) {
-            if (typeof renderShop === 'function') renderShop(category);
-            updateResultCount();
-        }
-
-        function filterProductsUI(category, btnElement) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            if(btnElement) btnElement.classList.add('active');
-            if (typeof renderShop === 'function') renderShop(category);
-            updateResultCount();
-        }
-
-        function updateResultCount() {
-            setTimeout(() => {
-                const res = document.getElementById('shopResults');
-                const count = document.querySelectorAll('#shopGrid .product-card').length;
-                if(res) res.textContent = count + (count > 1 ? " créations" : " création");
-            }, 50);
-        }
-
-        function showProductDetail(id) {
-            // On cherche le produit 
-            const product = products.find(p => String(p.id) === String(id));
-            if (!product) return;
-
-            // On force le prix en nombre
-            const prix = parseFloat(product.price);
-            
-            // On s'assure que la quantité repart de 1 quand on ouvre une nouvelle fiche !
-            currentQty = 1;
-
-            document.getElementById('shopView').style.display = 'none';
-            document.getElementById('productView').style.display = 'block';
-            window.scrollTo({top: 0, behavior: 'smooth'});
-
-            const layout = document.getElementById('productLayout');
-            const thumbnails = product.images.map(img => 
-                `<div class="thumb-box" onclick="document.getElementById('mainProdImg').src='${img}'"><img src="${img}" style="width:100%; height:100%; object-fit:cover;"></div>`
-            ).join('');
-            const mats = product.materials.map(m => `<li>${m}</li>`).join('');
-
-            // On réintègre le bloc de sélection des quantités
-            layout.innerHTML = `
-                <div class="product-gallery">
-                    <div class="product-main-img" onclick="openZoom(document.getElementById('mainProdImg').src)" style="cursor:zoom-in;">
-                        <img id="mainProdImg" src="${product.images[0]}" alt="${product.name}">
-                    </div>
-                    <div class="product-thumbnails">${thumbnails}</div>
-                </div>
-                <div class="product-details">
-                    <p class="product-cat">${product.category}</p>
-                    <h1>${product.name}</h1>
-                    <div class="product-price-tag">${prix.toFixed(2).replace('.', ',')} €</div>
-                    <p class="product-desc">${product.description}</p>
-                    <h4 style="margin-bottom:10px; font-family:'Lato', sans-serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; color:var(--black);">Détails & Matières :</h4>
-                    <ul class="materials-list">${mats}</ul>
-                    <div class="product-inline-reviews">
-                    <div style="display:flex; gap:15px; margin-top:40px;">
-                        <div style="display:flex;">
-                            <button class="qty-btn" onclick="changeQty(-1)">-</button>
-                            <input type="text" id="qtyValue" class="qty-value" value="1" readonly>
-                            <button class="qty-btn" onclick="changeQty(1)">+</button>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Ajouter au panier</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Ajout de la fonction pour faire marcher les boutons + et -
-        function changeQty(step) {
-            currentQty += step;
-            if (currentQty < 1) currentQty = 1; // Empêche de descendre sous 1 article
-            const qtyInput = document.getElementById('qtyValue');
-            if (qtyInput) qtyInput.value = currentQty;
-        }
-
-        window.hideProductDetail = function() {
-            document.getElementById('shopView').style.display = 'block';
-            document.getElementById('productView').style.display = 'none';
-            window.history.pushState({}, '', 'boutique.html');
-        }
-        window.openZoom = function(src) {
-            const modal = document.getElementById('zoomModal');
-            const img = document.getElementById('zoomImg');
-            if(modal && img) { img.src = src; modal.classList.add('active'); }
-        }
-        window.closeZoom = function() { document.getElementById('zoomModal').classList.remove('active'); }
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="app.min.js" defer></script>
 </body>
 </html>

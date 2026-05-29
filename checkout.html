@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Finaliser ma commande | Brin de Stef</title>
   <link href="images/logoz13.PNG" rel="icon" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     /* Styles spécifiques pour sublimer la page Checkout */
@@ -42,39 +44,48 @@
   </style>
 </head>
 <body>
-  <header class="offer-banner">💡 -10% avec le code <strong>BIENVENUE10</strong> <button class="close-banner" onclick="this.parentElement.style.display='none'">✕</button></header>
+  <a href="#checkoutMasterContainer" class="skip-link" style="position:absolute; left:-9999px; z-index:999;">Aller au paiement</a>
 
-  <nav class="navbar">
+  <header class="offer-banner" role="banner">
+      💡 -10% avec le code <strong>BIENVENUE10</strong> 
+      <button class="close-banner" onclick="this.parentElement.style.display='none'" aria-label="Fermer la bannière">✕</button>
+  </header>
+
+  <nav class="navbar" aria-label="Navigation de paiement">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">Brin de <em>Stef</em></a>
+      <a href="index.html" class="nav-logo" aria-label="Retour à l'accueil Brin de Stef">Brin de <em>Stef</em></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Accueil</a></li><li><a href="boutique.html">Boutique</a></li><li><a href="compte.html">Mon Compte</a></li><li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="compte.html">Mon Compte</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="compte.html" id="onlineStatus" class="nav-account-link" title="Mon Compte">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <a href="compte.html" id="onlineStatus" class="nav-account-link" aria-label="Accéder à mon compte" title="Mon Compte">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
             </svg>
             <span class="status-dot"></span>
         </a>
-        <button class="nav-cart" onclick="toggleCart()">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> 
-            <span class="cart-count">0</span>
-        </button>
-        <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        <button class="nav-cart" onclick="toggleCart()" aria-label="Voir mon panier">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> 
+            <span class="cart-count" aria-live="polite">0</span>
+        <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+    <span></span><span></span><span></span>
+</button>
       </div>
     </div>
   </nav>
 
-  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-  <aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()" aria-hidden="true"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Panier">
     <div class="cart-header">
-        <h3>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 5px; vertical-align: middle;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> 
+        <h2>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 5px; vertical-align: middle;" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> 
             Mon Panier
-        </h3>
-        <button onclick="toggleCart()">✕ Fermer</button>
+        </h2>
+        <button onclick="toggleCart()" aria-label="Fermer le panier" style="background:none; border:none; cursor:pointer;">✕ Fermer</button>
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-footer" id="cartFooter" style="display:none;">
@@ -85,11 +96,13 @@
 
   <main class="container" id="checkoutMasterContainer" style="padding: 40px 20px;">
     
-    <div id="authStep" style="max-width:500px; margin:20px auto; padding:40px; background:white; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.05);">
-      <h3 style="margin-bottom:25px; font-family:'Playfair Display', serif; text-align:center; font-size: 1.8rem;">Identifiez-vous</h3>
+    <section id="authStep" style="max-width:500px; margin:20px auto; padding:40px; background:white; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.05);">
+      <h1 style="margin-bottom:25px; font-family:'Playfair Display', serif; text-align:center; font-size: 1.8rem;">Identifiez-vous</h1>
       <div style="display:flex; flex-direction:column; gap:15px; margin-bottom:30px;">
-        <input type="email" id="authEmail" placeholder="Votre adresse e-mail" style="padding:12px; border:1px solid #ddd; border-radius:4px; font-family:'Lato', sans-serif;">
-        <input type="password" id="authPassword" placeholder="Votre mot de passe" style="padding:12px; border:1px solid #ddd; border-radius:4px; font-family:'Lato', sans-serif;">
+        <label for="authEmail" class="visually-hidden" style="display:none;">Votre adresse e-mail</label>
+        <input type="email" id="authEmail" placeholder="Votre adresse e-mail" autocomplete="email" style="padding:12px; border:1px solid #ddd; border-radius:4px; font-family:'Lato', sans-serif;">
+        <label for="authPassword" class="visually-hidden" style="display:none;">Votre mot de passe</label>
+        <input type="password" id="authPassword" placeholder="Votre mot de passe" autocomplete="current-password" style="padding:12px; border:1px solid #ddd; border-radius:4px; font-family:'Lato', sans-serif;">
         
         <div style="text-align: right; margin-top: -5px;">
             <button type="button" onclick="triggerPasswordReset()" style="background:none; border:none; color:var(--gray); font-size:0.85rem; text-decoration:underline; cursor:pointer; padding:0;">Mot de passe oublié ?</button>
@@ -108,30 +121,31 @@
         <button onclick="continueAsGuest()" style="width:100%; background:var(--gold); color:white; padding:14px; font-weight:700; text-transform:uppercase; font-size:0.9rem; border:none; cursor:pointer; border-radius:4px; transition: 0.3s;">Continuer en tant qu'invité →</button>
         <p style="margin-top: 10px; font-size: 0.8rem; color: var(--gray);">Vous pourrez créer un compte à la fin de votre commande.</p>
       </div>
-    </div>
+    </section>
 
-    <div id="checkoutStep" class="checkout-layout" style="display:none;">
+    <!-- Optimisation Dréa CRO : Autocomplete ajouté aux inputs -->
+    <section id="checkoutStep" class="checkout-layout" style="display:none;">
       
       <div class="checkout-form">
         <h2>Informations de livraison</h2>
 
         <form id="checkoutForm" onsubmit="return false;">
           <div class="form-row">
-            <div class="form-group"><label>Prénom</label><input type="text" id="chkPrenom" placeholder="Ex: Marie" required></div>
-            <div class="form-group"><label>Nom</label><input type="text" id="chkNom" placeholder="Ex: Dupont" required></div>
+            <div class="form-group"><label for="chkPrenom">Prénom</label><input type="text" id="chkPrenom" autocomplete="given-name" placeholder="Ex: Marie" required></div>
+            <div class="form-group"><label for="chkNom">Nom</label><input type="text" id="chkNom" autocomplete="family-name" placeholder="Ex: Dupont" required></div>
           </div>
           
-          <div class="form-group"><label>Adresse e-mail (pour le suivi)</label><input type="email" id="chkEmail" placeholder="marie.dupont@email.com" required></div>
+          <div class="form-group"><label for="chkEmail">Adresse e-mail (pour le suivi)</label><input type="email" id="chkEmail" autocomplete="email" placeholder="marie.dupont@email.com" required></div>
           
-          <div class="form-group"><label>Adresse postale</label><input type="text" id="chkAdresse" placeholder="N° et nom de rue" required></div>
+          <div class="form-group"><label for="chkAdresse">Adresse postale</label><input type="text" id="chkAdresse" autocomplete="street-address" placeholder="N° et nom de rue" required></div>
           
           <div class="form-row">
-            <div class="form-group"><label>Code Postal</label><input type="text" id="chkCP" placeholder="Ex: 13000" required></div>
-            <div class="form-group"><label>Ville</label><input type="text" id="chkVille" placeholder="Ex: Marseille" required></div>
+            <div class="form-group"><label for="chkCP">Code Postal</label><input type="text" id="chkCP" autocomplete="postal-code" placeholder="Ex: 13000" required></div>
+            <div class="form-group"><label for="chkVille">Ville</label><input type="text" id="chkVille" autocomplete="address-level2" placeholder="Ex: Marseille" required></div>
           </div>
           
           <div class="form-group" style="margin-top: 20px;">
-            <label>Vous avez un code promo ?</label>
+            <label for="chkCoupon">Vous avez un code promo ?</label>
             <div style="display:flex; gap:10px;">
               <input type="text" id="chkCoupon" placeholder="Entrez votre code ici" style="flex:1;">
               <button type="button" style="background:var(--black); color:white; border:none; padding:0 20px; border-radius:4px; font-weight:bold; cursor:pointer;" onclick="applyCoupon()">Appliquer</button>
@@ -140,9 +154,9 @@
         </form>
       </div>
 
-      <aside class="order-summary">
+      <aside class="order-summary" aria-label="Récapitulatif de votre commande">
         <h3>Récapitulatif</h3>
-        <div id="checkoutItems" style="margin-bottom: 20px;">Chargement du panier...</div>
+        <div id="checkoutItems" style="margin-bottom: 20px;" aria-live="polite">Chargement du panier...</div>
         
         <div class="order-totals">
           <div class="total-row"><span>Sous-total</span><span id="chkSubtotal">0,00 €</span></div>
@@ -152,125 +166,170 @@
         </div>
 
         <div class="payment-buttons">
-            <button id="btnPaypal" class="btn-paypal" type="button" onclick="processPayment('paypal')">
-                <svg viewBox="0 0 124 33" width="70" height="20"><path fill="#003087" d="M46.211 6.749h-6.839a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-1.132-1.326-3.113-1.746-5.02-1.746zM47 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583h.43c1.465 0 2.971.054 3.662 1.048.336.474.457 1.026.278 1.081zM62.744 6.749h-3.353a.95.95 0 0 0-.916.702l-1.921 6.575-3.036-6.619a.95.95 0 0 0-.862-.658h-3.529a.57.57 0 0 0-.5.856l4.981 9.712-2.316 6.586a.57.57 0 0 0 .538.761h3.352a.95.95 0 0 0 .902-.647l5.228-16.412a.57.57 0 0 0-.555-.856zM80.05 6.749h-6.84a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-1.132-1.326-3.113-1.746-5.02-1.746zM80.84 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583h.43c1.465 0 2.971.054 3.662 1.048.336.474.457 1.026.278 1.081zM97.105 6.749h-3.415a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l2.67-16.927a.57.57 0 0 0-.564-.658zM114.73 6.749h-3.332a.95.95 0 0 0-.931.758l-2.029 10.155-3.093-10.228a.95.95 0 0 0-.909-.685h-3.535a.57.57 0 0 0-.55.704l4.636 17.387a.57.57 0 0 0 .55.422h3.332a.95.95 0 0 0 .931-.758l2.05-10.264 3.125 10.339a.95.95 0 0 0 .91.683h3.504a.57.57 0 0 0 .546-.708l-4.66-17.383a.57.57 0 0 0-.545-.422z" /></svg>
+            <button id="btnPaypal" class="btn-paypal" type="button" onclick="processPayment('paypal')" aria-label="Payer avec PayPal">
+                <svg viewBox="0 0 124 33" width="70" height="20" aria-hidden="true"><path fill="#003087" d="M46.211 6.749h-6.839a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-1.132-1.326-3.113-1.746-5.02-1.746zM47 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583h.43c1.465 0 2.971.054 3.662 1.048.336.474.457 1.026.278 1.081zM62.744 6.749h-3.353a.95.95 0 0 0-.916.702l-1.921 6.575-3.036-6.619a.95.95 0 0 0-.862-.658h-3.529a.57.57 0 0 0-.5.856l4.981 9.712-2.316 6.586a.57.57 0 0 0 .538.761h3.352a.95.95 0 0 0 .902-.647l5.228-16.412a.57.57 0 0 0-.555-.856zM80.05 6.749h-6.84a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-1.132-1.326-3.113-1.746-5.02-1.746zM80.84 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583h.43c1.465 0 2.971.054 3.662 1.048.336.474.457 1.026.278 1.081zM97.105 6.749h-3.415a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l2.67-16.927a.57.57 0 0 0-.564-.658zM114.73 6.749h-3.332a.95.95 0 0 0-.931.758l-2.029 10.155-3.093-10.228a.95.95 0 0 0-.909-.685h-3.535a.57.57 0 0 0-.55.704l4.636 17.387a.57.57 0 0 0 .55.422h3.332a.95.95 0 0 0 .931-.758l2.05-10.264 3.125 10.339a.95.95 0 0 0 .91.683h3.504a.57.57 0 0 0 .546-.708l-4.66-17.383a.57.57 0 0 0-.545-.422z" /></svg>
                 Payer avec PayPal
             </button>
-            <button id="btnFinalizeOrder" class="btn-stripe" type="button">
-    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <button id="btnFinalizeOrder" class="btn-stripe" type="button" aria-label="Payer avec Carte Bancaire sécurisée">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
     Payer ma commande (Sécurisé)
             </button>
         </div>
         
         <div style="margin-top:20px; text-align:center; font-size:0.8rem; color:var(--gray); display: flex; align-items: center; justify-content: center; gap: 5px;">
-            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             Paiement 100% sécurisé via Stripe ou PayPal
         </div>
       </aside>
       
-    </div>
+    </section>
   </main>
 
-  <div id="notification" class="notification"><span class="notif-icon">ℹ️</span><span id="notifText"></span></div>
+  <div id="notification" class="notification" role="status" aria-live="polite"><span class="notif-icon" aria-hidden="true">ℹ️</span><span id="notifText"></span></div>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><h3 class="footer-logo-title">Brin de <em>Stef</em></h3><p>Bijoux fins délicats faits main.</p></div>
-        <div class="footer-col"><h4>La Collection</h4><ul><li><a href="boutique.html?cat=colliers">Colliers</a></li><li><a href="boutique.html?cat=bagues">Bagues</a></li><li><a href="boutique.html?cat=bracelets">Bracelets</a></li><li><a href="boutique.html?cat=boucles">Boucles</a></li></ul></div>
-        <div class="footer-col"><h4>En savoir plus</h4><ul><li><a href="contact.html">Me contacter</a></li><li><a href="cgv.html#livraison">Livraison & Retours</a></li></ul></div>
-        <div class="footer-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="cgv.html">CGV</a></li></ul></div>
-      </div>
-      <div class="footer-bottom">© 2026 Brin de Stef. Tous droits réservés.</div>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo-title" aria-hidden="true">Brin de <em>Stef</em></div>
+                <p>Bijoux fins délicats faits main. Chaque pièce est une poésie unique, imaginée et assemblée avec cœur dans mon atelier niché en Provence.</p>
+            </div>
+            
+            <div class="footer-col">
+                <!-- Remplacement des h4 par des h2 sémantiques pour Lighthouse -->
+                <h2 class="footer-heading">La Collection</h2>
+                <ul>
+                    <li><a href="boutique.html?cat=colliers">Colliers</a></li>
+                    <li><a href="boutique.html?cat=bagues">Bagues</a></li>
+                    <li><a href="boutique.html?cat=bracelets">Bracelets</a></li>
+                    <li><a href="boutique.html?cat=boucles">Boucles d'oreilles</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h2 class="footer-heading">En savoir plus</h2>
+                <ul>
+                    <li><a href="a-propos.html">Mon histoire</a></li>
+                    <li><a href="contact.html">Me contacter</a></li>
+                    <li><a href="cgv.html#livraison">Livraison & Retours</a></li>
+                    <li><a href="cgv.html#faq">Des questions ? (FAQ)</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h2 class="footer-heading">Légal</h2>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="cgv.html">CGV</a></li>
+                    <li><a href="cgv.html#rgpd">Vos données privées</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Brin de Stef. Tous droits réservés.</p>
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="app.js"></script>
+  <!-- Optimisation Dréa : Defer scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="app.js" defer></script>
 
   <script>
-      // 1. Fonction pour synchroniser et pré-remplir l'adresse depuis Supabase Database
-      async function syncUserProfile(userId) {
-          try {
-              if (!window.supabaseClient) return;
+      // Les fonctions locales ont besoin que Supabase soit chargé. 
+      // On s'assure de wrapper le code dans un événement pour attendre le chargement différé (defer)
+      document.addEventListener('DOMContentLoaded', () => {
+          // 1. Fonction pour synchroniser et pré-remplir l'adresse depuis Supabase Database
+          async function syncUserProfile(userId) {
+              try {
+                  if (!window.supabaseClient) return;
 
-              // Requête sur la table 'profiles' pour chercher les infos d'adresse de l'utilisateur
-              const { data: profile, error } = await window.supabaseClient
-                  .from('profiles')
-                  .select('prenom, nom, adresse, code_postal, ville')
-                  .eq('id', userId)
-                  .single();
+                  const { data: profile, error } = await window.supabaseClient
+                      .from('profiles')
+                      .select('prenom, nom, adresse, code_postal, ville')
+                      .eq('id', userId)
+                      .single();
 
-              if (error) {
-                  console.log("Aucune adresse enregistrée pour ce compte (premier achat).");
+                  if (error) {
+                      console.log("Aucune adresse enregistrée pour ce compte (premier achat).");
+                      return;
+                  }
+
+                  if (profile) {
+                      if (profile.prenom) document.getElementById('chkPrenom').value = profile.prenom;
+                      if (profile.nom) document.getElementById('chkNom').value = profile.nom;
+                      if (profile.adresse) document.getElementById('chkAdresse').value = profile.adresse;
+                      if (profile.code_postal) document.getElementById('chkCP').value = profile.code_postal;
+                      if (profile.ville) document.getElementById('chkVille').value = profile.ville;
+                  }
+              } catch (err) {
+                  console.error("Erreur de synchronisation du profil :", err);
+              }
+          }
+
+          // 2. Fonction pour gérer le statut visuel (Email)
+          function updateVisualStatus(session) {
+              const emailInput = document.getElementById('chkEmail');
+              if (session && session.user) {
+                  if (emailInput) {
+                      emailInput.value = session.user.email;
+                      emailInput.setAttribute('readonly', 'true');
+                  }
+                  syncUserProfile(session.user.id);
+              } else {
+                  if (emailInput) {
+                      emailInput.removeAttribute('readonly');
+                  }
+              }
+          }
+
+          // 3. Initialisation et écoute du statut d'authentification
+          async function checkAuthStatus() {
+              if (window.supabaseClient) {
+                  const { data: { session } } = await window.supabaseClient.auth.getSession();
+                  updateVisualStatus(session);
+
+                  window.supabaseClient.auth.onAuthStateChange((event, currentSession) => {
+                      updateVisualStatus(currentSession);
+                  });
+              } else {
+                  // Si supabase n'est pas encore prêt, on réessaie un peu plus tard
+                  setTimeout(checkAuthStatus, 200);
+              }
+          }
+          checkAuthStatus();
+          
+          // 5. Demande de réinitialisation de mot de passe
+          window.triggerPasswordReset = async function() {
+              const email = document.getElementById('authEmail').value.trim();
+              
+              if (!email) {
+                  if (typeof showNotification === 'function') {
+                      showNotification('⚠️ Entrez votre e-mail ci-dessus puis cliquez sur "Mot de passe oublié".');
+                  }
                   return;
               }
-
-              // Si des données existent, on pré-remplit automatiquement les champs correspondants
-              if (profile) {
-                  if (profile.prenom) document.getElementById('chkPrenom').value = profile.prenom;
-                  if (profile.nom) document.getElementById('chkNom').value = profile.nom;
-                  if (profile.adresse) document.getElementById('chkAdresse').value = profile.adresse;
-                  if (profile.code_postal) document.getElementById('chkCP').value = profile.code_postal;
-                  if (profile.ville) document.getElementById('chkVille').value = profile.ville;
+              
+              try {
+                  if (!window.supabaseClient) throw new Error("Connexion au serveur perdue.");
+                  
+                  const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
+                      redirectTo: 'https://brindestef.fr/nouveau_mot_de_passe.html',
+                  });
+                  
+                  if (error) throw error;
+                  
+                  if (typeof showNotification === 'function') {
+                      showNotification('✅ Lien de réinitialisation envoyé par e-mail !');
+                  }
+              } catch (err) {
+                  if (typeof showNotification === 'function') {
+                      showNotification('❌ Erreur : ' + err.message);
+                  }
               }
-          } catch (err) {
-              console.error("Erreur de synchronisation du profil :", err);
-          }
-      }
-
-      // 2. Fonction pour gérer le statut visuel (Email)
-      function updateVisualStatus(session) {
-          const emailInput = document.getElementById('chkEmail');
-          if (session && session.user) {
-              if (emailInput) {
-                  emailInput.value = session.user.email;
-                  emailInput.setAttribute('readonly', 'true');
-              }
-              // Lance le chargement de l'adresse de livraison associée
-              syncUserProfile(session.user.id);
-          } else {
-              if (emailInput) {
-                  emailInput.removeAttribute('readonly');
-              }
-          }
-      }
-
-      // 3. Initialisation et écoute du statut d'authentification
-      window.addEventListener('DOMContentLoaded', async () => {
-          if (window.supabaseClient) {
-              const { data: { session } } = await window.supabaseClient.auth.getSession();
-              updateVisualStatus(session);
-
-              window.supabaseClient.auth.onAuthStateChange((event, currentSession) => {
-                  updateVisualStatus(currentSession);
-              });
           }
       });
-      
-      // 5. Demande de réinitialisation de mot de passe
-      async function triggerPasswordReset() {
-          const email = document.getElementById('authEmail').value.trim();
-          
-          if (!email) {
-              showNotification('⚠️ Entrez votre e-mail ci-dessus puis cliquez sur "Mot de passe oublié".');
-              return;
-          }
-          
-          try {
-              if (!window.supabaseClient) throw new Error("Connexion au serveur perdue.");
-              
-              const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
-                  redirectTo: 'https://brindestef.fr/nouveau_mot_de_passe.html',
-              });
-              
-              if (error) throw error;
-              
-              showNotification('✅ Lien de réinitialisation envoyé par e-mail !');
-          } catch (err) {
-              showNotification('❌ Erreur : ' + err.message);
-          }
-      }
   </script>
 </body>
 </html>
